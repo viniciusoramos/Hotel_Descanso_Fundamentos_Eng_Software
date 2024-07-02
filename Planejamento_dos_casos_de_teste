@@ -1,0 +1,200 @@
+Planejamento dos Casos de Teste
+Este planejamento abrange os casos de teste para as principais funcionalidades do software de gestão do "Hotel Descanso Garantido". Cada caso de teste inclui as entradas, o procedimento de teste e as saídas esperadas.
+
+1. Cadastrar Cliente
+Caso de Teste 1.1: Cadastro de Cliente com Dados Válidos
+
+Entradas:
+Nome: "João Silva"
+Endereço: "Rua das Flores, 123"
+Telefone: "11987654321"
+Procedimento de Teste:
+Executar a função cadastrar_cliente().
+Inserir os dados conforme solicitado.
+Saída Esperada:
+Mensagem: "Cliente cadastrado com sucesso! Código: 1"
+Cliente é adicionado ao array clientes.
+Caso de Teste 1.2: Cadastro de Cliente com Nome Vazio
+
+Entradas:
+Nome: ""
+Endereço: "Rua das Flores, 123"
+Telefone: "11987654321"
+Procedimento de Teste:
+Executar a função cadastrar_cliente().
+Inserir os dados conforme solicitado.
+Saída Esperada:
+Mensagem de erro indicando que o nome não pode estar vazio.
+Cliente não é adicionado ao array clientes.
+2. Cadastrar Funcionario
+Caso de Teste 2.1: Cadastro de Funcionario com Dados Válidos
+
+Entradas:
+Nome: "Maria Oliveira"
+Telefone: "11987654322"
+Cargo: "Recepcionista"
+Salário: 2500.00
+Procedimento de Teste:
+Executar a função cadastrar_funcionario().
+Inserir os dados conforme solicitado.
+Saída Esperada:
+Mensagem: "Funcionario cadastrado com sucesso! Código: 1"
+Funcionário é adicionado ao array funcionarios.
+Caso de Teste 2.2: Cadastro de Funcionario com Salário Negativo
+
+Entradas:
+Nome: "Carlos Santos"
+Telefone: "11987654323"
+Cargo: "Gerente"
+Salário: -3000.00
+Procedimento de Teste:
+Executar a função cadastrar_funcionario().
+Inserir os dados conforme solicitado.
+Saída Esperada:
+Mensagem de erro indicando que o salário não pode ser negativo.
+Funcionário não é adicionado ao array funcionarios.
+3. Cadastrar Estadia
+Caso de Teste 3.1: Cadastro de Estadia com Dados Válidos
+
+Entradas:
+Código do Cliente: 1
+Quantidade de Hóspedes: 2
+Data de Entrada: "2024-07-01"
+Data de Saída: "2024-07-05"
+Procedimento de Teste:
+Executar a função cadastrar_estadia().
+Inserir os dados conforme solicitado.
+Saída Esperada:
+Mensagem: "Estadia cadastrada com sucesso! Código da Estadia: 1"
+Estadia é adicionada ao array estadias.
+Status do quarto é alterado para "ocupado".
+Caso de Teste 3.2: Cadastro de Estadia com Cliente Inexistente
+
+Entradas:
+Código do Cliente: 999
+Quantidade de Hóspedes: 2
+Data de Entrada: "2024-07-01"
+Data de Saída: "2024-07-05"
+Procedimento de Teste:
+Executar a função cadastrar_estadia().
+Inserir os dados conforme solicitado.
+Saída Esperada:
+Mensagem: "Cliente não encontrado!"
+Estadia não é adicionada ao array estadias.
+4. Dar Baixa em Estadia
+Caso de Teste 4.1: Baixa de Estadia com Código Válido
+
+Entradas:
+Código da Estadia: 1
+Procedimento de Teste:
+Executar a função dar_baixa_estadia().
+Inserir o código da estadia conforme solicitado.
+Saída Esperada:
+Mensagem: "Valor total a ser pago: [valor calculado]"
+Estadia é removida do array estadias.
+Status do quarto é alterado para "desocupado".
+Caso de Teste 4.2: Baixa de Estadia com Código Inexistente
+
+Entradas:
+Código da Estadia: 999
+Procedimento de Teste:
+Executar a função dar_baixa_estadia().
+Inserir o código da estadia conforme solicitado.
+Saída Esperada:
+Mensagem: "Estadia não encontrada!"
+Nenhuma alteração no array estadias.
+5. Pesquisar Cliente
+Caso de Teste 5.1: Pesquisa de Cliente por Código Válido
+
+Entradas:
+Código do Cliente: 1
+Procedimento de Teste:
+Executar a função pesquisar_cliente().
+Inserir o código do cliente conforme solicitado.
+Saída Esperada:
+Mensagem: "Cliente encontrado: [detalhes do cliente]"
+Caso de Teste 5.2: Pesquisa de Cliente por Nome Válido
+
+Entradas:
+Nome do Cliente: "João Silva"
+Procedimento de Teste:
+Executar a função pesquisar_cliente().
+Inserir o nome do cliente conforme solicitado.
+Saída Esperada:
+Mensagem: "Cliente encontrado: [detalhes do cliente]"
+Caso de Teste 5.3: Pesquisa de Cliente por Código Inexistente
+
+Entradas:
+Código do Cliente: 999
+Procedimento de Teste:
+Executar a função pesquisar_cliente().
+Inserir o código do cliente conforme solicitado.
+Saída Esperada:
+Mensagem: "Cliente não encontrado!"
+Caso de Teste 5.4: Pesquisa de Cliente por Nome Inexistente
+
+Entradas:
+Nome do Cliente: "Pedro Silva"
+Procedimento de Teste:
+Executar a função pesquisar_cliente().
+Inserir o nome do cliente conforme solicitado.
+Saída Esperada:
+Mensagem: "Cliente não encontrado!"
+6. Pesquisar Funcionario
+Caso de Teste 6.1: Pesquisa de Funcionario por Código Válido
+
+Entradas:
+Código do Funcionario: 1
+Procedimento de Teste:
+Executar a função pesquisar_funcionario().
+Inserir o código do funcionário conforme solicitado.
+Saída Esperada:
+Mensagem: "Funcionario encontrado: [detalhes do funcionário]"
+Caso de Teste 6.2: Pesquisa de Funcionario por Nome Válido
+
+Entradas:
+Nome do Funcionario: "Maria Oliveira"
+Procedimento de Teste:
+Executar a função pesquisar_funcionario().
+Inserir o nome do funcionário conforme solicitado.
+Saída Esperada:
+Mensagem: "Funcionario encontrado: [detalhes do funcionário]"
+Caso de Teste 6.3: Pesquisa de Funcionario por Código Inexistente
+
+Entradas:
+Código do Funcionario: 999
+Procedimento de Teste:
+Executar a função pesquisar_funcionario().
+Inserir o código do funcionário conforme solicitado.
+Saída Esperada:
+Mensagem: "Funcionario não encontrado!"
+Caso de Teste 6.4: Pesquisa de Funcionario por Nome Inexistente
+
+Entradas:
+Nome do Funcionario: "Carlos Santos"
+Procedimento de Teste:
+Executar a função pesquisar_funcionario().
+Inserir o nome do funcionário conforme solicitado.
+Saída Esperada:
+Mensagem: "Funcionario não encontrado!"
+7. Mostrar Estadias de um Cliente
+Caso de Teste 7.1: Mostrar Estadias de Cliente com Estadias
+
+Entradas:
+Código do Cliente: 1
+Procedimento de Teste:
+Executar a função mostrar_estadias_cliente().
+Inserir o código do cliente conforme solicitado.
+Saída Esperada:
+Lista de estadias associadas ao cliente com detalhes (datas de entrada e saída, número do quarto, etc.).
+Caso de Teste 7.2: Mostrar Estadias de Cliente sem Estadias
+
+Entradas:
+Código do Cliente: 2
+Procedimento de Teste:
+Executar a função mostrar_estadias_cliente().
+Inserir o código do cliente conforme solicitado.
+Saída Esperada:
+Mensagem: "Nenhuma estadia encontrada para este cliente."
+Nota Final
+Estes casos de teste cobrem uma ampla gama de cenários para garantir a funcionalidade e a robustez do software. Durante a execução dos testes, é essencial verificar não apenas as saídas esperadas, mas também quaisquer mensagens de erro e o comportamento do sistema em situações anômalas.
