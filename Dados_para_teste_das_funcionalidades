@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <string.h>
+#include "main.h"  
+// Função para inicializar os dados iniciais no sistema
+void carregar_dados_iniciais() {
+    // Dados iniciais de clientes
+    Cliente clientes_iniciais[] = {
+        {1, "João Silva", "Rua A, 123", "(11) 9999-8888"},
+        {2, "Maria Oliveira", "Av. B, 456", "(11) 7777-6666"},
+        // Adicione mais clientes conforme necessário
+    };
+    int total_clientes_iniciais = sizeof(clientes_iniciais) / sizeof(Cliente);
+
+    // Dados iniciais de funcionários
+    Funcionario funcionarios_iniciais[] = {
+        {1, "Pedro Santos", "(11) 8888-7777", "Recepcionista", 2500.0},
+        {2, "Ana Costa", "(11) 5555-4444", "Camareira", 2000.0},
+        // Adicione mais funcionários conforme necessário
+    };
+    int total_funcionarios_iniciais = sizeof(funcionarios_iniciais) / sizeof(Funcionario);
+
+    // Dados iniciais de quartos
+    Quarto quartos_iniciais[] = {
+        {101, 2, 150.0, "desocupado"},
+        {102, 1, 100.0, "desocupado"},
+        // Adicione mais quartos conforme necessário
+    };
+    int total_quartos_iniciais = sizeof(quartos_iniciais) / sizeof(Quarto);
+
+    // Dados iniciais de estadias (vazios inicialmente)
+    Estadia estadias_iniciais[MAX_ESTADIAS] = {};
+    int total_estadias_iniciais = 0;  // Inicialmente sem estadias
+
+    // Copiar dados iniciais para estruturas globais
+    memcpy(clientes, clientes_iniciais, total_clientes_iniciais * sizeof(Cliente));
+    memcpy(funcionarios, funcionarios_iniciais, total_funcionarios_iniciais * sizeof(Funcionario));
+    memcpy(quartos, quartos_iniciais, total_quartos_iniciais * sizeof(Quarto));
+    memcpy(estadias, estadias_iniciais, total_estadias_iniciais * sizeof(Estadia));
+
+    total_clientes = total_clientes_iniciais;
+    total_funcionarios = total_funcionarios_iniciais;
+    total_quartos = total_quartos_iniciais;
+    total_estadias = total_estadias_iniciais;
+
+    printf("Dados iniciais carregados com sucesso!\n");
+}
