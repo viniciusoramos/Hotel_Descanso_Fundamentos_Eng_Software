@@ -1,0 +1,91 @@
+Documentação das Funcionalidades do Software
+Visão Geral
+Este software gerencia um hotel fictício chamado "Hotel Descanso Garantido". As principais funcionalidades incluem o cadastro de clientes, funcionários e estadias, bem como a busca e a gestão das estadias. Os dados são persistidos em arquivos binários para garantir a continuidade das informações entre execuções do programa.
+
+Estruturas de Dados
+Cliente
+
+typedef struct {
+    int codigo;
+    char nome[50];
+    char endereco[100];
+    char telefone[15];
+} Cliente;
+codigo: Identificador único do cliente.
+nome: Nome do cliente.
+endereco: Endereço do cliente.
+telefone: Telefone de contato do cliente.
+Funcionario
+
+
+typedef struct {
+    int codigo;
+    char nome[50];
+    char telefone[15];
+    char cargo[30];
+    float salario;
+} Funcionario;
+codigo: Identificador único do funcionário.
+nome: Nome do funcionário.
+telefone: Telefone de contato do funcionário.
+cargo: Cargo do funcionário.
+salario: Salário do funcionário.
+Quarto
+
+typedef struct {
+    int numero;
+    int quantidade_hospedes;
+    float valor_diaria;
+    char status[10];  // "ocupado" ou "desocupado"
+} Quarto;
+numero: Número do quarto.
+quantidade_hospedes: Capacidade máxima de hóspedes do quarto.
+valor_diaria: Valor da diária do quarto.
+status: Status do quarto, podendo ser "ocupado" ou "desocupado".
+Estadia
+
+
+typedef struct {
+    int codigo_estadia;
+    char data_entrada[11];
+    char data_saida[11];
+    int quantidade_diarias;
+    int codigo_cliente;
+    int numero_quarto;
+} Estadia;
+codigo_estadia: Identificador único da estadia.
+data_entrada: Data de entrada na estadia (formato YYYY-MM-DD).
+data_saida: Data de saída da estadia (formato YYYY-MM-DD).
+quantidade_diarias: Quantidade de diárias da estadia.
+codigo_cliente: Identificador do cliente associado à estadia.
+numero_quarto: Número do quarto associado à estadia.
+Funções
+Funções de Utilidade
+
+strptime(const char* s, const char* format, struct tm* tm): Converte uma string de data para uma estrutura tm.
+gerar_codigo_cliente(): Gera um código único para um cliente novo.
+gerar_codigo_funcionario(): Gera um código único para um funcionário novo.
+gerar_codigo_estadia(): Gera um código único para uma estadia nova.
+calcular_diarias(const char* data_entrada, const char* data_saida): Calcula a quantidade de diárias entre duas datas.
+Cadastro
+
+cadastrar_cliente(): Registra um novo cliente no sistema.
+cadastrar_funcionario(): Registra um novo funcionário no sistema.
+cadastrar_estadia(): Registra uma nova estadia, verificando a disponibilidade de quartos.
+Gestão de Estadias
+
+dar_baixa_estadia(): Realiza o checkout de uma estadia, calculando o valor total e liberando o quarto.
+Busca
+
+pesquisar_cliente(): Permite buscar um cliente pelo código ou nome.
+pesquisar_funcionario(): Permite buscar um funcionário pelo código ou nome.
+mostrar_estadias_cliente(): Mostra todas as estadias associadas a um cliente específico.
+Persistência de Dados
+
+salvar_dados(): Salva os dados de clientes, funcionários, quartos e estadias em arquivos binários.
+carregar_dados(): Carrega os dados de clientes, funcionários, quartos e estadias de arquivos binários.
+Função Principal
+menu(): Exibe o menu principal do sistema, permitindo ao usuário escolher as operações a serem realizadas.
+main(): Inicia a execução do programa, chamando a função menu().
+Arquitetura do Sistema
+O sistema é baseado em um menu interativo que permite ao usuário acessar diferentes funcionalidades do software. As informações são armazenadas em arrays e persistidas em arquivos binários para garantir que os dados sejam mantidos entre as execuções do programa. Cada funcionalidade é implementada como uma função separada, garantindo uma arquitetura modular e fácil de manter.
