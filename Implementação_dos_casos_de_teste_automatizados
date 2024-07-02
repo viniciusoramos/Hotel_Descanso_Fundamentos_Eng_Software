@@ -1,0 +1,47 @@
+#include <munit.h>
+#include <stdio.h>
+#include <string.h>
+
+
+static MunitResult test_cadastrar_estadia_cliente_existente_quarto_disponivel(const MunitParameter params[], void* fixture) {
+   
+    int codigo_cliente = 1; 
+    int quantidade_hospedes = 2;
+    char data_entrada[] = "2024-07-01";
+    char data_saida[] = "2024-07-05";
+    return MUNIT_OK;
+}
+
+static MunitResult test_cadastrar_estadia_cliente_nao_existente(const MunitParameter params[], void* fixture) {
+    int codigo_cliente = 5; 
+    int quantidade_hospedes = 2;
+    char data_entrada[] = "2024-07-01";
+    char data_saida[] = "2024-07-05";
+    return MUNIT_OK;
+}
+
+static MunitResult test_cadastrar_estadia_quarto_indisponivel(const MunitParameter params[], void* fixture) {
+    int codigo_cliente = 1; 
+    int quantidade_hospedes = 3; 
+    char data_entrada[] = "2024-07-01";
+    char data_saida[] = "2024-07-05";
+    return MUNIT_OK;
+}
+static MunitTest test_suite_tests[] = {
+    { (char*) "cliente_existente_quarto_disponivel", test_cadastrar_estadia_cliente_existente_quarto_disponivel, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { (char*) "cliente_nao_existente", test_cadastrar_estadia_cliente_nao_existente, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { (char*) "quarto_indisponivel", test_cadastrar_estadia_quarto_indisponivel, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { NULL, NULL, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL }
+};
+
+static MunitSuite test_suite = {
+    (char*) "test-suite", 
+    test_suite_tests,     
+    NULL,                 
+    1,                    
+    MUNIT_SUITE_OPTION_NONE
+};
+
+int main(int argc, char* argv[]) {
+    return munit_suite_main(&test_suite, NULL, argc, argv);
+}
